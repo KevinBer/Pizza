@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Controlador.ControladorVentanaPrincipal;
 import java.awt.BorderLayout;
 
 /**
@@ -13,12 +14,20 @@ import java.awt.BorderLayout;
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VentanaPrincipal
-     */
+    ControladorVentanaPrincipal controladorVentanaPrincipal;
+    
     public VentanaPrincipal() {
         initComponents();
+        controladorVentanaPrincipal= new ControladorVentanaPrincipal();
+        escucharMenu();
         
+    }
+    
+    public void escucharMenu(){
+        btnAgregarOrden.addActionListener(controladorVentanaPrincipal);
+        btnAdminCliente.addActionListener(controladorVentanaPrincipal);
+        btnPagarOrden.addActionListener(controladorVentanaPrincipal);
+        btnVerMesa.addActionListener(controladorVentanaPrincipal);
     }
 
     /**
@@ -31,62 +40,55 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenuOrdenes = new javax.swing.JMenu();
-        jMItemAgregarOrden = new javax.swing.JMenuItem();
-        jMItemDesglosar = new javax.swing.JMenuItem();
-        jMItemBuscarPedido = new javax.swing.JMenuItem();
-        JMenuClientes = new javax.swing.JMenu();
-        jMenuItemAdministrar = new javax.swing.JMenu();
-        jMItemAgregarCliente = new javax.swing.JMenuItem();
-        jMItemBuscarCliente = new javax.swing.JMenuItem();
-        jMItemEliminar = new javax.swing.JMenuItem();
+        btnAgregarOrden = new javax.swing.JButton();
+        btnPagarOrden = new javax.swing.JButton();
+        btnAdminCliente = new javax.swing.JButton();
+        btnVerMesa = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\kevin bermudez\\Documents\\NetBeansProjects\\PizzaRica\\src\\imagenes\\logo.jpg")); // NOI18N
 
-        jMenuOrdenes.setText("Ordenes");
+        btnAgregarOrden.setText("Agregar Orden");
 
-        jMItemAgregarOrden.setText("Agregar orden");
-        jMenuOrdenes.add(jMItemAgregarOrden);
+        btnPagarOrden.setText("Pagar Orden");
 
-        jMItemDesglosar.setText("Desglosar total");
-        jMenuOrdenes.add(jMItemDesglosar);
+        btnAdminCliente.setText("Administrar Cliente");
 
-        jMItemBuscarPedido.setText("Buscar orden");
-        jMenuOrdenes.add(jMItemBuscarPedido);
-
-        jMenuBar1.add(jMenuOrdenes);
-
-        JMenuClientes.setText("Clientes");
-
-        jMenuItemAdministrar.setText("Administrar");
-
-        jMItemAgregarCliente.setText("Agregar");
-        jMenuItemAdministrar.add(jMItemAgregarCliente);
-
-        jMItemBuscarCliente.setText("Buscar");
-        jMenuItemAdministrar.add(jMItemBuscarCliente);
-
-        jMItemEliminar.setText("Eliminar");
-        jMenuItemAdministrar.add(jMItemEliminar);
-
-        JMenuClientes.add(jMenuItemAdministrar);
-
-        jMenuBar1.add(JMenuClientes);
-
-        setJMenuBar(jMenuBar1);
+        btnVerMesa.setText("Ver Mesa");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnAgregarOrden, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnPagarOrden, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnAdminCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnVerMesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 758, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(217, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAgregarOrden)
+                    .addComponent(btnAdminCliente))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnPagarOrden)
+                    .addComponent(btnVerMesa))
+                .addGap(7, 7, 7)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, Short.MAX_VALUE))
         );
 
         pack();
@@ -130,16 +132,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu JMenuClientes;
+    private javax.swing.JButton btnAdminCliente;
+    private javax.swing.JButton btnAgregarOrden;
+    private javax.swing.JButton btnPagarOrden;
+    private javax.swing.JButton btnVerMesa;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenuItem jMItemAgregarCliente;
-    private javax.swing.JMenuItem jMItemAgregarOrden;
-    private javax.swing.JMenuItem jMItemBuscarCliente;
-    private javax.swing.JMenuItem jMItemBuscarPedido;
-    private javax.swing.JMenuItem jMItemDesglosar;
-    private javax.swing.JMenuItem jMItemEliminar;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenu jMenuItemAdministrar;
-    private javax.swing.JMenu jMenuOrdenes;
     // End of variables declaration//GEN-END:variables
 }
