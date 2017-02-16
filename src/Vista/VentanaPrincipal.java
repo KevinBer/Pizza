@@ -41,7 +41,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMItemAgregarCliente = new javax.swing.JMenuItem();
         jMItemBuscarCliente = new javax.swing.JMenuItem();
         jMItemEliminar = new javax.swing.JMenuItem();
-        jMenuSalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,9 +75,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         JMenuClientes.add(jMenuItemAdministrar);
 
         jMenuBar1.add(JMenuClientes);
-
-        jMenuSalir.setText("Salir");
-        jMenuBar1.add(jMenuSalir);
 
         setJMenuBar(jMenuBar1);
 
@@ -145,6 +141,5 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuItemAdministrar;
     private javax.swing.JMenu jMenuOrdenes;
-    private javax.swing.JMenu jMenuSalir;
     // End of variables declaration//GEN-END:variables
 }
